@@ -6,6 +6,7 @@ public class Tests {
     private int count;
     private int score;
 
+
     public Tests() {
         ave = 0.0;
         count = 0;

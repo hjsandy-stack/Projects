@@ -6,6 +6,7 @@ public class Runner {
 
         myTests.getAverage();   // collect scores
 
+
         System.out.println(myTests);  // display result
     }
 }
