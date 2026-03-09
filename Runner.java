@@ -1,33 +1,38 @@
-
+//this class tests all methods in the Calc class
+//the Calc class exposes the following methods:
+//add, subtract, multiply, divide
+//user is prompted for input
 import java.util.Scanner;
-
 public class Runner {
     public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
+        //instantiate a Calc object
+        Calc myCalculator = new Calc();
+        //get user input for two numbers
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter the first number: ");
+        double n1 = scan.nextDouble();
+        System.out.println("Please enter the second number: ");
+        double n2 = scan.nextDouble();
 
-        Pet p1 = new Pet();
-        System.out.println(p1.toString());
+        //pass the numbers to the Calc object
+        myCalculator.setNum1(n1);
+        myCalculator.setNum2(n2);
 
-        Pet p2 = new Pet("Dog", "Buster", 11);
-        System.out.println(p2.toString());
+        //output from Calc instance
+        System.out.println(myCalculator);
 
-        System.out.println("Enter animal type:");
-        String type = input.nextLine();
+        //examining the instance private data fields by calling get methods
+        System.out.println("Calling num1 get method: " + myCalculator.getNum1());
+        System.out.println("Calling num2 get method: " + myCalculator.getNum2());
 
-        System.out.println("Enter animal name:");
-        String name = input.nextLine();
+        //calling Calc methods directly
+        //can use a local variable for sum if you need that value for another calculation
+        double sum = myCalculator.add();
+        System.out.println("The sum is: " + sum);
 
-        System.out.println("Enter animal age:");
-        int age = input.nextInt();
-
-        Pet p3 = new Pet();
-        p3.setType(type);
-        p3.setName(name);
-        p3.setAge(age);
-
-        System.out.println();
-        System.out.println(p3.toString());
-
-        input.close();
+        //or if you don't, then just display the difference, product and quotient
+        System.out.println("The difference is: " + myCalculator.subtract());
+        System.out.println("The product is: " + myCalculator.multiply());
+        System.out.println("The quotient is: " + myCalculator.divide());
     }
 }
