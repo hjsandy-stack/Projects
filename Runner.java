@@ -1,27 +1,55 @@
-import java.util.Scanner;
-
 public class Runner {
-    public static void main(String[] args){
-        Calc myCalculator = new Calc();
+    //exercises the ArrList class
+    public static void main(String[] args) {
+        //instantiate IntArray object
+        IntArray iArr = new IntArray(10);
+        int leng = iArr.size();
 
-        Scanner scan = new Scanner(System.in);
+        //display size of array == number of array elements
+        System.out.println("The number of array elements is: " + leng);
 
-        double n1 = myCalculator.getValidNumber(scan, "Please enter the first number: ");
-        double n2 = myCalculator.getValidNumber(scan, "Please enter the second number: ");
+        //this method fills array with random numbers
+        iArr.fillRand();
+        //print out array to prove the fillRand method worked
+        System.out.println("Array with 10 elements filled with random numbers between 1 and 6");
+        System.out.println(iArr);
 
-        myCalculator.setNum1(n1);
-        myCalculator.setNum2(n2);
+        //set a certain array element to a new value
+        iArr.set(5, 6789);
 
-        System.out.println(myCalculator);
+        //display the value of the that new value at position 5 (you can change this index)
+        System.out.println("The value of array element 5 is: " + iArr.get(5));
 
-        System.out.println("Calling num1 get method: " + myCalculator.getNum1());
-        System.out.println("Calling num2 get method: " + myCalculator.getNum2());
+        //display all array data, watch for the changed element!
+        System.out.println(iArr);
 
-        double sum = myCalculator.add();
-        System.out.println("The sum is: " + sum);
+        //clear the array == delete the values and all the elements
+        iArr.clear();
 
-        System.out.println("The difference is: " + myCalculator.subtract());
-        System.out.println("The product is: " + myCalculator.multiply());
-        System.out.println("The quotient is: " + myCalculator.divide());
+        //check if array is now empty
+        if (iArr.isEmpty()) {
+            System.out.println("iArr is empty\n");
+        }
+
+        //allocate new array elements
+        iArr = new IntArray(100);
+
+        //this method fills array with random numbers
+        iArr.fillRand();
+        //print out array to prove the fillRand method worked
+
+        System.out.println("Array with 100 elements filled with random numbers between 1 and 6");
+        System.out.println(iArr);
+
+        //sort the array
+        if(!iArr.isEmpty()){
+            iArr.sort();
+        }
+        else System.out.println("Array is empty, nothing to sort");
+
+        //print out array to prove the sort method worked
+        System.out.println("Array after sorting\n");
+        System.out.println(iArr);
+
     }
 }
